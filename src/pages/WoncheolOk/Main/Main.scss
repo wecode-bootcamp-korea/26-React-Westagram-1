@@ -1,0 +1,252 @@
+@import '../../../styles/variables.scss';
+
+:root {
+  --icon-width-height: 25px;
+  --profileImg-width-height: 35px;
+  --profileImg-width-height-small: 20px;
+}
+
+body {
+  position: relative;
+  margin: 0px;
+}
+
+.main {
+  a {
+    @include flexAlignCenter;
+    height: 100%;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: black;
+  }
+
+  main {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    top: 60px;
+    background-color: #fafafa;
+    z-index: 0;
+  }
+
+  .feeds {
+    position: absolute;
+    right: 45%;
+    width: 500px;
+    height: auto;
+    margin-top: 50px;
+    border: 1px solid gray;
+  }
+
+  article {
+    @include flexDirectionColumn;
+    width: 100%;
+    height: auto;
+  }
+
+  .headerBox {
+    @include flexAlignCenter;
+    justify-content: left;
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin: 5px 0px 5px;
+    padding-left: 20px;
+  }
+
+  .profileImg_normal {
+    width: var(--profileImg-width-height);
+    height: var(--profileImg-width-height);
+    border-radius: 50%;
+  }
+
+  .username {
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+
+  .moreBtn {
+    position: absolute;
+    right: 10px;
+  }
+
+  .uil-ellipsis-h {
+    color: gray;
+    font-size: 1.2rem;
+  }
+
+  .articleIconsBox {
+    @include flexAlignCenter;
+    justify-content: left;
+    position: relative;
+    margin: 5px 0px 5px;
+  }
+
+  .articleIcons {
+    margin: 0px 8px;
+    font-size: 1.5rem;
+  }
+
+  .uil-bookmark {
+    position: absolute;
+    right: 5px;
+  }
+
+  .likes {
+    @include flexAlignCenter;
+    justify-content: left;
+    margin: 10px 0px 10px 5px;
+  }
+
+  .profileImg_small {
+    width: var(--profileImg-width-height-small);
+    height: var(--profileImg-width-height-small);
+    border-radius: 50%;
+  }
+
+  .howManyLikes {
+    display: flex;
+    width: 400px;
+    margin: 0px 0px 0px 10px;
+    font-weight: light;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .imgDescription {
+    margin: 0px 10px 0px 10px;
+    text-align: justify;
+  }
+
+  #replies {
+    margin: 5px 0px 5px 10px;
+    padding: 0px;
+    list-style: none;
+  }
+
+  .eachReply {
+    position: relative;
+  }
+
+  .inline {
+    display: inline;
+    margin-right: 8px;
+  }
+
+  .deleteReply {
+    position: absolute;
+    right: 15px;
+  }
+
+  .deleteReply:hover {
+    cursor: pointer;
+  }
+
+  .pushedMinutesAgo {
+    margin: 0px 0px 5px 10px;
+    color: gray;
+    font-size: 0.8rem;
+  }
+
+  #replyInputContainer {
+    @include flexAlignCenter;
+    justify-content: space-between;
+    height: 50px;
+    padding: 0px 15px;
+    background-color: white;
+    border: 1px solid lightgray;
+  }
+
+  #replyInput {
+    width: 80%;
+    height: 80%;
+    border: none;
+  }
+
+  #replySubmit {
+    color: #0095f6;
+    background-color: white;
+    border: none;
+  }
+
+  #replySubmit:hover {
+    cursor: pointer;
+  }
+
+  #replySubmit:disabled {
+    color: #c0dffd;
+    cursor: default;
+  }
+
+  .mainRight {
+    @include flexDirectionColumn;
+    position: fixed;
+    right: 20%;
+    width: 300px;
+    height: auto;
+    margin: 50px 0px 0px 20px;
+  }
+
+  .myAccount {
+    @include flexAlignCenter;
+    justify-content: left;
+    margin: 10px 0px 20px 10px;
+  }
+
+  .storiesContainer {
+    @include flexDirectionColumn;
+    margin-bottom: 10px;
+    background-color: white;
+    border: 0.5px solid lightgray;
+  }
+
+  .storiesHeader,
+  .recommendationHeader {
+    @include flexAlignCenter;
+    justify-content: space-between;
+    height: 40px;
+    padding: 0px 15px;
+  }
+
+  .stories {
+    color: gray;
+  }
+
+  .seeAll {
+    font-size: 0.8rem;
+  }
+
+  .otherUsers {
+    @include flexAlignCenter;
+    height: 50px;
+    margin: 0px 0px 5px 20px;
+  }
+
+  .nameTimeContainer {
+    @include flexDirectionColumn;
+    margin-left: 10px;
+  }
+
+  .otherUsername {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .storyPassedTime,
+  .whyRecommended {
+    margin: 0px;
+    padding: 0px;
+    font-size: 0.7rem;
+  }
+
+  .recommendationContainer {
+    @include flexDirectionColumn;
+    background-color: white;
+    border: 0.5px solid lightgray;
+  }
+}
