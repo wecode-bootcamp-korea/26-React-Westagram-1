@@ -1,0 +1,97 @@
+$box-border: #e6e6e6;
+$border: #dbdbdb;
+$logo: #262626;
+
+.nav {
+  display: fixed;
+  top: 0;
+  border-bottom: 1px solid $box-border;
+
+  .navContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    height: 70px;
+    margin: auto;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    width: 150px;
+    padding: 10px 0;
+    color: $logo;
+  }
+
+  .logoImg {
+    background-position: -467px -601px;
+    margin-right: 10px;
+  }
+
+  .logoText {
+    padding-left: 10px;
+    border-left: 1px solid black;
+    border-radius: 0px;
+    font-size: 24px;
+  }
+
+  .iconWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 110px;
+  }
+
+  .exploreImg {
+    background-image: url(../../assets/images/explore.png);
+    background-position: -2px -3px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .likeImg {
+    background-position: -1040px -103px;
+  }
+
+  .personImg {
+    background-position: -902px -995px;
+  }
+
+  .search {
+    position: relative;
+    height: 30px;
+    width: 200px;
+    border: 1px solid $box-border;
+    outline: none;
+  }
+
+  .search .searchImg {
+    position: absolute;
+    right: 56%;
+    top: 29px;
+    background-position: -350px -994px;
+    zoom: 0.27;
+    opacity: 50%;
+  }
+
+  .searchLabel {
+    position: absolute;
+    right: 44%;
+    top: 7px;
+    font-size: 13px;
+    opacity: 60%;
+  }
+
+  .searchConainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 1px solid $border;
+  }
+
+  .hide {
+    /* 사용자가 아무것도 입력하지 않았을 때 검색창을 숨기는 용도*/
+    display: none !important;
+  }
+}

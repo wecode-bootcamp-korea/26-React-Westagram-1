@@ -1,0 +1,137 @@
+.section {
+  display: flex;
+  justify-content: space-around;
+  max-width: 900px;
+  margin: auto;
+}
+
+button {
+  border-style: none;
+  background-color: #fefefe;
+}
+
+.spriteImg {
+  background-image: url('../../../assets/images/1075ddfe0f68.png');
+  display: inline-block;
+  width: 47px;
+  height: 47px;
+  zoom: 0.5;
+}
+
+$box-border: #e6e6e6;
+$activation: #0095f6;
+
+.feed {
+  margin: 50px 0;
+  border: 1px solid $box-border;
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid $box-border;
+  }
+
+  .topProfile {
+    display: flex;
+    align-items: center;
+  }
+
+  .personImg {
+    background-position: -902px -995px;
+  }
+
+  .profileImg {
+    width: 25px;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+
+  .seemore {
+    width: 15px;
+    margin: 0 10px;
+    border: none;
+  }
+
+  .feedPhoto {
+    width: 600px;
+    margin: 0;
+  }
+
+  .icons {
+    display: flex;
+    position: relative;
+    width: 100%;
+  }
+
+  .icon {
+    display: flex;
+    justify-content: space-around;
+    width: 120px;
+    margin: 10px;
+  }
+
+  .heartImg {
+    background-position: -1040px -101px;
+  }
+
+  .commentImg {
+    background-position: -52px -946px;
+  }
+
+  .shareImg {
+    background-position: -250px -945px;
+  }
+
+  .bookmarkImg {
+    position: absolute;
+    background-position: -302px -994px;
+    top: 17px;
+    right: 22px;
+  }
+
+  .info {
+    margin: 10px;
+  }
+
+  .commentWrap {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-top: 1px solid $box-border;
+  }
+
+  .writeComment {
+    width: 90%;
+    border: none;
+    outline: none;
+  }
+
+  .comment {
+    position: relative;
+    padding: 2px 0;
+    font-size: 15px;
+  }
+
+  li .heartImg {
+    position: absolute;
+    right: 60px;
+    margin: 20px;
+    zoom: 0.2;
+    outline: none;
+  }
+
+  li .removeComment {
+    position: absolute;
+    background-position: -1096px -155px;
+    right: 0;
+    margin: 20px 5px;
+    zoom: 0.2;
+    outline: none;
+  }
+
+  .post {
+    color: $activation;
+    opacity: 0.4;
+  }
+}

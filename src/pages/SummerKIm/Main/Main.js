@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import Feed from './Feed/Feed';
+import MainRight from './MainRight/MainRight';
+import './Main.scss';
 
 export class Main extends Component {
   render() {
     return (
-      <div>
-        <div>Hello</div>
-      </div>
+      <section className="section">
+        <Feed />
+        <MainRight />
+      </section>
     );
   }
 }

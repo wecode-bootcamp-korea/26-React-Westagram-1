@@ -1,0 +1,125 @@
+$box-border: #e6e6e6;
+$logo: #262626;
+$font-inbox: #ffffff;
+$background: #fafafa;
+$activation: #0095f6;
+
+.main {
+  margin-top: 40px;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 380px;
+    height: 400px;
+    margin: auto;
+    border: 1px solid $box-border;
+  }
+
+  #westagram {
+    margin: 20px;
+    color: $logo;
+    font-size: 50px;
+  }
+
+  .inputWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 280px;
+    margin: 30px 40px 100px 40px;
+  }
+
+  input {
+    padding: 7px;
+    width: 100%;
+    margin-bottom: 5px;
+    border: 1px solid $box-border;
+    background-color: $background;
+    outline: none;
+  }
+
+  #loginBtn {
+    padding: 5px;
+    width: 100%;
+    margin-top: 5px;
+    border: 1px solid $activation;
+    color: $font-inbox;
+    background-color: $activation;
+    opacity: 0.4;
+  }
+
+  .activate {
+    opacity: 1;
+  }
+
+  .diactivate:disabled {
+    background-color: $activation;
+    opacity: 0.4;
+  }
+
+  #forgotPw {
+    font-size: 12px;
+    text-decoration: none;
+  }
+}
+
+$border: #dbdbdb;
+$font: #8e8e8e;
+
+.mainRight {
+  margin: 50px 0 auto 30px;
+
+  .profileRight {
+    display: flex;
+    width: 220px;
+  }
+
+  .myImg {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .myId {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+    font-size: 12px;
+  }
+
+  .myInfo {
+    color: $font;
+  }
+
+  .suggestion {
+    margin-top: 10px;
+    border: 1px solid $border;
+  }
+  .push {
+    margin-top: 10px;
+    border: 1px solid $border;
+  }
+
+  .topofBox {
+    display: inline-block;
+    width: 154px;
+    padding: 6px;
+    color: $font;
+    font-size: 14px;
+  }
+
+  .personStory {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .personStoryImg {
+    width: 25px;
+    margin: 2px 7px;
+    border-radius: 50%;
+  }
+}
