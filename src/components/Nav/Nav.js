@@ -1,44 +1,41 @@
 import React, { Component } from 'react';
-import './Nav.scss';
+import { withRouter } from 'react-router-dom';
+import '../Nav/Nav.scss';
 
-export class Nav extends Component {
+class Nav extends Component {
   render() {
     return (
-      <nav className="nav">
-        <container className="navContainer">
-          <div className="logo">
-            <div className="spriteImg logoImg"></div>
-            <span className="logoText">instagram</span>
+      <header>
+        {/* nav */}
+        <nav>
+          <div className="logo clearfix">
+            <a href="#" className="logoImg">
+              <img src="/images/BoraPark/logo.png" alt="Westagram logo" />
+            </a>
+
+            <h1 className="logoTxt eng">
+              <a href="#">Westagram</a>
+            </h1>
           </div>
-          <div className="search">
-            <input type="search" className="search searchInput" />
-            <label Htmlfor="search">
-              <span className="searchLabel">검색</span>
-              <span className="spriteImg searchImg"></span>
-            </label>
-            <container className="searchContainer">
-              <ul className="userList"></ul>
-            </container>
+
+          <div className="search-box">
+            <input type="text" placeholder="검색" />
           </div>
-          <div className="iconWrap">
-            <div className="explore">
-              <a href="#" className="explore"></a>
-              <div className="spriteImg exploreImg"></div>
-            </div>
-            <div className="likes">
-              <button className="likes">
-                <div className="spriteImg likeImg"></div>
-              </button>
-            </div>
-            <div className="profile">
-              <a href="#" className="profile"></a>
-              <div className="spriteImg personImg"></div>
-            </div>
+
+          <div className="icon-wrap">
+            <a href="#">
+              <img src="/images/BoraPark/ico_explore.png" alt="explore" />
+            </a>
+            <a href="#">
+              <img src="/images/BoraPark/ico_heart.png" alt="heart" />
+            </a>
+            <a href="#">
+              <img src="/images/BoraPark/ico_profile.png" alt="profile" />
+            </a>
           </div>
-        </container>
-      </nav>
+        </nav>
+      </header>
     );
   }
 }
-
-export default Nav;
+export default withRouter(Nav);

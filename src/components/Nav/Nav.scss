@@ -1,97 +1,131 @@
-$box-border: #e6e6e6;
-$border: #dbdbdb;
-$logo: #262626;
+@charset "utf-8";
+$border-color: rgb(219, 219, 219);
+$border-sytle: 1.5px solid $border-color;
+$bg-color: #fafafa;
 
-.nav {
-  display: fixed;
+@mixin position-default {
+  position: absolute;
   top: 0;
-  border-bottom: 1px solid $box-border;
+  left: 0;
+}
 
-  .navContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 900px;
-    height: 70px;
-    margin: auto;
+@mixin position-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin flex-space {
+  display: flex;
+  justify-content: space-between;
+}
+
+body {
+  background-color: $bg-color;
+  color: #454545;
+}
+
+header {
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  border-bottom: 1px solid $border-color;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+
+  nav {
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+    @include flex-space;
+
+    .logo {
+      width: 200px;
+      line-height: 60px;
+
+      .logoImg {
+        display: block;
+        margin-top: 17px;
+        margin-left: 12px;
+        float: left;
+
+        img {
+          display: block;
+          width: 26px;
+        }
+      }
+
+      .logoTxt {
+        font-size: 1.5rem;
+        float: right;
+        position: relative;
+
+        a {
+          display: block;
+
+          &::before {
+            content: '';
+            display: block;
+            width: 1.8px;
+            height: 24px;
+            background-color: #333;
+            position: absolute;
+            top: 18px;
+            left: -19px;
+          }
+        }
+      }
+    }
   }
+}
 
-  .logo {
-    display: flex;
-    align-items: center;
-    width: 150px;
-    padding: 10px 0;
-    color: $logo;
+nav {
+  .search-box {
+    line-height: 60px;
+
+    input {
+      padding: 4px 20px;
+      background: $bg-color;
+      border: $border-sytle;
+      border-radius: 3px;
+
+      &::placeholder {
+        color: rgb(171, 173, 176);
+        text-align: center;
+        background: url(../../assets/images/ico_search.png) no-repeat 35%
+          center/12px 12px;
+      }
+    }
   }
+}
 
-  .logoImg {
-    background-position: -467px -601px;
-    margin-right: 10px;
-  }
+.icon-wrap {
+  width: 15%;
 
-  .logoText {
-    padding-left: 10px;
-    border-left: 1px solid black;
-    border-radius: 0px;
-    font-size: 24px;
-  }
-
-  .iconWrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 110px;
-  }
-
-  .exploreImg {
-    background-image: url(../../assets/images/explore.png);
-    background-position: -2px -3px;
-    width: 50px;
-    height: 50px;
-  }
-
-  .likeImg {
-    background-position: -1040px -103px;
-  }
-
-  .personImg {
-    background-position: -902px -995px;
-  }
-
-  .search {
+  a {
+    display: block;
+    float: left;
+    width: 33.33%;
+    height: 100px;
     position: relative;
-    height: 30px;
-    width: 200px;
-    border: 1px solid $box-border;
-    outline: none;
-  }
 
-  .search .searchImg {
-    position: absolute;
-    right: 56%;
-    top: 29px;
-    background-position: -350px -994px;
-    zoom: 0.27;
-    opacity: 50%;
-  }
+    img {
+      display: block;
+      width: 24px;
+      margin: 17px auto;
+      line-height: 100px;
+    }
 
-  .searchLabel {
-    position: absolute;
-    right: 44%;
-    top: 7px;
-    font-size: 13px;
-    opacity: 60%;
-  }
-
-  .searchConainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    border: 1px solid $border;
-  }
-
-  .hide {
-    /* 사용자가 아무것도 입력하지 않았을 때 검색창을 숨기는 용도*/
-    display: none !important;
+    &:nth-child(2)::after {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: rgb(237, 73, 86);
+      @include position-center;
+    }
   }
 }

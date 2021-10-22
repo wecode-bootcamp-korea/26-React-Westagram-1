@@ -7,22 +7,24 @@ export class Feed extends Component {
     this.state = {
       comment: '',
       commentList: [],
-      id: 'winter',
+      id: 'winter ',
     };
+    this.inputRef = React.createRef();
   }
-
-  handleClick = () => {
-    // console.log(e);
-    this.setState({
-      commentList: [],
-      commnet: '',
-    });
-    console.log(this.state.commentList);
-  };
 
   handleComment = e => {
     this.setState({ comment: e.target.value });
     console.log(this.state.comment);
+  };
+
+  handleClick = e => {
+    if (this.state.comment.length > 0) {
+      this.setState({
+        commentList: this.state.commentList.concat(this.state.comment),
+        comment: '',
+      });
+    }
+    this.inputRef.current.value = '';
   };
 
   render() {
@@ -69,29 +71,24 @@ export class Feed extends Component {
             </div>
             <div className="commentsWrap">
               <ul className="comments">
-                {this.state &&
-                  this.state.commentList.map(x => {
-                    return (
-                      <Comment
-                        id={this.state.id}
-                        comment={this.state.comment}
-                      />
-                    );
-                  })}
+                {this.state.commentList.map(comment => {
+                  return <Comment id={this.state.id} comment={comment} />;
+                })}
               </ul>
             </div>
           </div>
-          <div className="commentWrap">
+          <form action="#" className="commentWrap">
             <input
               type="text"
               className="writeComment"
               placeholder="댓글 달기..."
+              ref={this.inputRef}
               onChange={this.handleComment}
             />
             <button className="post" onClick={this.handleClick}>
               게시
             </button>
-          </div>
+          </form>
         </article>
       </feed>
     );
