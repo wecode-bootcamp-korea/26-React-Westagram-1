@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
-// import { Link } from 'react-router-dom';
-import './Login.scss';
+import '../../../styles/reset.scss';
 import '../../../styles/common.scss';
+import './Login.scss';
 
 const initialState = {
   username: '',
@@ -27,7 +27,11 @@ class Login extends Component {
   };
 
   inputKeyPress = e => {
-    if (e.key === 'Enter') {
+    if (
+      e.key === 'Enter' &&
+      this.state.username.length > 0 &&
+      this.state.password > 0
+    ) {
       this.btnClick();
     }
   };
