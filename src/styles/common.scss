@@ -25,7 +25,7 @@ image {
 }
 
 $borderColor: rgb(219, 219, 219);
-$borderSytle: 1.5px solid $border-color;
+$borderSytle: 1.5px solid $borderColor;
 $bgColor: #fafafa;
 
 @mixin flexAlignCenter {
