@@ -42,15 +42,18 @@ $bgColor: #fafafa;
   display: flex;
   flex-direction: column;
 }
+
 @mixin flexJustBetween {
   display: flex;
   justify-content: space-between;
 }
+
 @mixin posAbsDefault {
   position: absolute;
   top: 0;
   left: 0;
 }
+
 @mixin posAbsCenter {
   position: absolute;
   top: 50%;

@@ -6,6 +6,7 @@ class Nav extends Component {
   render() {
     return (
       <header>
+        {/* nav */}
         <nav>
           <div className="logo clearfix">
             <a href="#" className="logoImg">
