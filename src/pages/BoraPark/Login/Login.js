@@ -17,6 +17,7 @@ class Login extends Component {
   handlePwInput = e => {
     this.setState({ pw: e.target.value });
   };
+  /* button 조건 */
   handleButton = () => {
     if (this.state.id.includes('@') && this.state.pw.length > 9) {
       this.setState({
