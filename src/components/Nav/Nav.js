@@ -1,56 +1,41 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router';
-import './Nav.scss';
+import { withRouter } from 'react-router-dom';
+import '../Nav/Nav.scss';
 
-export class Nav extends Component {
+class Nav extends Component {
   render() {
     return (
-      <nav className="navContainer">
-        <div className="navLeftInsta">
-          <a href="/main">
-            <img
-              src="/images/WoncheolOk/instagramIcon.png"
-              alt="instagram icon"
-              className="instaIcon"
-            />
-          </a>
-          <div className="centerLine" />
-          <a href="/main">
-            <p className="instagram">Westagram</p>
-          </a>
-        </div>
+      <header>
+        {/* nav */}
+        <nav>
+          <div className="logo clearfix">
+            <a href="#" className="logoImg">
+              <img src="/images/BoraPark/logo.png" alt="Westagram logo" />
+            </a>
 
-        <div className="inputSearch">
-          <i className="fa-solid fa-magnifying-glass" />
-          <input type="text" placeholder="&#xF002; 검색" id="searchBar" />
-        </div>
+            <h1 className="logoTxt eng">
+              <a href="#">Westagram</a>
+            </h1>
+          </div>
 
-        <div className="navRightIcons">
-          <a href="/main">
-            <img
-              src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png"
-              alt="explore icon"
-              className="navIcons"
-            />
-          </a>
-          <a href="/main">
-            <img
-              src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
-              alt="heart icon"
-              className="navIcons"
-            />
-          </a>
-          <a href="/main">
-            <img
-              src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png"
-              alt="profile icon"
-              className="navIcons"
-            />
-          </a>
-        </div>
-      </nav>
+          <div className="search-box">
+            <input type="text" placeholder="검색" />
+          </div>
+
+          <div className="icon-wrap">
+            <a href="#">
+              <img src="/images/BoraPark/ico_explore.png" alt="explore" />
+            </a>
+            <a href="#">
+              <img src="/images/BoraPark/ico_heart.png" alt="heart" />
+            </a>
+            <a href="#">
+              <img src="/images/BoraPark/ico_profile.png" alt="profile" />
+            </a>
+          </div>
+        </nav>
+      </header>
     );
   }
 }
-
 export default withRouter(Nav);
