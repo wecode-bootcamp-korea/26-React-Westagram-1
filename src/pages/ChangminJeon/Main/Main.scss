@@ -1,0 +1,224 @@
+$gray-color: rgb(219, 219, 219);
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.mainContainer {
+  /* height: 100%; */
+  padding-top: 80px;
+  background-color: rgb(250, 250, 250);
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.feeds {
+  width: 550px;
+  height: 100%;
+  border: 1px solid $gray-color;
+  background-color: white;
+}
+
+.profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 80px;
+}
+
+.profileInfo {
+  display: flex;
+  align-items: center;
+}
+
+.profileImage {
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.articleImage {
+  width: 100%;
+  height: 300px;
+}
+
+.IconBox {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px 10px 20px;
+}
+
+.IconBox {
+  img {
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    background-color: white;
+  }
+}
+
+.likeContainer {
+  padding: 10px 20px 10px 20px;
+}
+
+#likeNumbers {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+ul {
+  padding: 10px 17px 10px 17px;
+  list-style-type: none;
+}
+
+.comment {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 18px;
+}
+
+.commentFirst {
+  display: flex;
+  justify-content: space-between;
+}
+
+.commentFirst {
+  .fa-heart {
+    font-size: 12px;
+  }
+}
+
+.deleteButton {
+  width: 50px;
+  border: 1px solid black;
+  background-color: thistle;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.commentBox {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px 10px 20px;
+  border-top: 1px solid $gray-color;
+}
+
+.commentBox {
+  img {
+    flex: 1;
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.commentInput {
+  flex: 15;
+  height: 30px;
+  border: none;
+  font-size: 16px;
+}
+
+.uploadButton {
+  flex: 1;
+  color: blue;
+  text-align: center;
+  opacity: 0.3;
+  cursor: default;
+}
+
+.mainRight {
+  padding-top: 20px;
+  padding-left: 30px;
+  width: 300px;
+}
+
+.rightProfile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.RightMyProfile {
+  margin-right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.KoreanName {
+  color: $gray-color;
+}
+
+.story,
+.recommend {
+  margin-bottom: 20px;
+  padding: 15px 10px 0 10px;
+  background-color: white;
+}
+
+.storyBar,
+.recommendBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.KoreanStory,
+.KoreanRecommend {
+  color: rgb(142, 142, 142);
+}
+
+.storyLists {
+  overflow: auto;
+  list-style-type: none;
+}
+
+.storyList,
+.recommendList {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+li {
+  img {
+    margin-right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+}
+.listName,
+.recommendName {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.listTime {
+  color: $gray-color;
+  font-size: 10px;
+}
+
+.recommendPharse {
+  color: $gray-color;
+  font-size: 12px;
+}
+
+.follow {
+  margin-left: 9px;
+  color: rgb(0, 149, 246);
+  font-size: 12px;
+  text-decoration: none;
+}
