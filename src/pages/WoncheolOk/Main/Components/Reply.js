@@ -38,8 +38,8 @@ class Reply extends Component {
     return (
       <div>
         <ul id="replies">
-          {this.state.replies.map((e, index) => {
-            return <ReplyInput key={index} value={e} />;
+          {this.state.replies.map((reply, index) => {
+            return <ReplyInput key={index} value={reply} />;
           })}
         </ul>
 
