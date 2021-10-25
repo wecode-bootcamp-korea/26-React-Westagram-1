@@ -1,4 +1,3 @@
-import { getAllByPlaceholderText } from '@testing-library/dom';
 import React, { Component } from 'react';
 import './Login.scss';
 
@@ -18,20 +17,26 @@ export class Login extends Component {
   }
 
   handleIdInput = e => {
-    this.setState({ userId: e.target.value });
+    this.setState({ userId: e.target.value, color: true, value: false });
     console.log(this.state.userId);
   };
 
   handlePwInput = e => {
     if (!this.state.userId.includes('@')) {
       // 아이디를 이메일 형식으로 썼는지 확인
-      this.userIdRef.current.value = '이메일 형식으로 입력해주세요';
-      this.userIdRef.current.style.color = 'red'; // FIXME: red로 바꾼 값 원상복귀
+      this.setState({ color: false, value: false });
+      // this.userIdRef.current.value = '이메일 형식으로 입력해주세요';
+      // this.userIdRef.current.style.color = false; // FIXME: red로 바꾼 값 원상복귀
     } else {
-      this.setState({ userPw: e.target.value, opacity: true });
-      console.log(this.state.userPw.length);
+      this.setState({
+        userPw: e.target.value,
+        opacity: true,
+        color: true,
+        disabled: false,
+      });
     }
   };
+
   handleOnClick = () => {
     if (this.state.userPw.length < 5) {
       this.userPwRef.current.type = 'text'; // type 값 변경해서 메세지 뜰 수 있게
@@ -50,7 +55,7 @@ export class Login extends Component {
         <div className="container">
           <span id="westagram">westagram</span>
           <form action="#" className="inputWrap">
-            <input
+            <input // FIXME: email 정규 표현식 사용
               type="text"
               id="id"
               placeholder="전화번호, 사용자 이름 또는 이메일"
@@ -72,8 +77,8 @@ export class Login extends Component {
               ref={this.buttonRef}
               style={{
                 opacity: this.state.opacity ? '1' : '0.4',
-                disabled: this.state.disabled ? 'disabled' : 'abled',
               }}
+              disabled={!this.state.userPw && !this.state.userId}
             >
               로그인
             </button>

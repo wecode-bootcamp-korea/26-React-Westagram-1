@@ -1,137 +1,142 @@
+@import '../../../styles/common.scss';
+
 .section {
   display: flex;
   justify-content: space-around;
   max-width: 900px;
   margin: auto;
-}
+  margin-top: 20px;
 
-button {
-  border-style: none;
-  background-color: #fefefe;
-}
-
-.spriteImg {
-  background-image: url('../../../assets/images/1075ddfe0f68.png');
-  display: inline-block;
-  width: 47px;
-  height: 47px;
-  zoom: 0.5;
-}
-
-$box-border: #e6e6e6;
-$activation: #0095f6;
-
-.feed {
-  margin: 50px 0;
-  border: 1px solid $box-border;
-
-  .top {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px;
-    border-bottom: 1px solid $box-border;
+  button {
+    border-style: none;
+    background-color: #fefefe;
   }
 
-  .topProfile {
-    display: flex;
-    align-items: center;
+  .spriteImg {
+    background-image: url('../../../assets/images/1075ddfe0f68.png');
+    display: inline-block;
+    width: 47px;
+    height: 47px;
+    zoom: 0.5;
   }
 
-  .personImg {
-    background-position: -902px -995px;
-  }
+  $box-border: #e6e6e6;
+  $activation: #0095f6;
 
-  .profileImg {
-    width: 25px;
-    margin-right: 10px;
-    border-radius: 50%;
-  }
+  .feed {
+    @include flexDirectColumn;
 
-  .seemore {
-    width: 15px;
-    margin: 0 10px;
-    border: none;
-  }
+    margin: 50px 0;
+    border: 1px solid $box-border;
 
-  .feedPhoto {
-    width: 600px;
-    margin: 0;
-  }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px;
+      border-bottom: 1px solid $box-border;
+    }
 
-  .icons {
-    display: flex;
-    position: relative;
-    width: 100%;
-  }
+    .topProfile {
+      display: flex;
+      align-items: center;
+    }
 
-  .icon {
-    display: flex;
-    justify-content: space-around;
-    width: 120px;
-    margin: 10px;
-  }
+    .personImg {
+      background-position: -902px -995px;
+    }
 
-  .heartImg {
-    background-position: -1040px -101px;
-  }
+    .profileImg {
+      width: 25px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
 
-  .commentImg {
-    background-position: -52px -946px;
-  }
+    .seemore {
+      width: 15px;
+      margin: 0 10px;
+      border: none;
+    }
 
-  .shareImg {
-    background-position: -250px -945px;
-  }
+    .feedPhoto {
+      width: 600px;
+      margin: 0;
+    }
 
-  .bookmarkImg {
-    position: absolute;
-    background-position: -302px -994px;
-    top: 17px;
-    right: 22px;
-  }
+    .icons {
+      display: flex;
+      position: relative;
+      width: 100%;
+    }
 
-  .info {
-    margin: 10px;
-  }
+    .icon {
+      display: flex;
+      justify-content: space-around;
+      width: 120px;
+      margin: 10px;
+    }
 
-  .commentWrap {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border-top: 1px solid $box-border;
-  }
+    .heartImg {
+      background-position: -1040px -101px;
+    }
 
-  .writeComment {
-    width: 90%;
-    border: none;
-    outline: none;
-  }
+    .commentImg {
+      background-position: -52px -946px;
+    }
 
-  .comment {
-    position: relative;
-    padding: 2px 0;
-    font-size: 15px;
-  }
+    .shareImg {
+      background-position: -250px -945px;
+    }
 
-  li .heartImg {
-    position: absolute;
-    right: 60px;
-    margin: 20px;
-    zoom: 0.2;
-    outline: none;
-  }
+    .bookmarkImg {
+      position: absolute;
+      background-position: -302px -994px;
+      top: 17px;
+      right: 22px;
+    }
 
-  li .removeComment {
-    position: absolute;
-    background-position: -1096px -155px;
-    right: 0;
-    margin: 20px 5px;
-    zoom: 0.2;
-    outline: none;
-  }
+    .info {
+      margin: 10px;
+    }
 
-  .post {
-    color: $activation;
-    opacity: 0.4;
+    .commentWrap {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border-top: 1px solid $box-border;
+    }
+
+    .writeComment {
+      width: 90%;
+      border: none;
+      outline: none;
+    }
+
+    .comment {
+      position: relative;
+      padding: 2px 0;
+      font-size: 15px;
+    }
+
+    li .heartImg {
+      position: absolute;
+      right: 60px;
+      margin: 20px;
+      zoom: 0.2;
+      outline: none;
+    }
+
+    li .removeComment {
+      position: absolute;
+      background-position: -1096px -155px;
+      right: 0;
+      margin: 20px 5px;
+      zoom: 0.2;
+      outline: none;
+    }
+
+    .post {
+      color: $activation;
+      opacity: 0.4;
+    }
   }
 }

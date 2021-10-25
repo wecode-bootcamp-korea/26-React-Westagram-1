@@ -7,14 +7,13 @@ export class Feed extends Component {
     this.state = {
       comment: '',
       commentList: [],
-      id: 'winter ',
+      commnetValue: '',
     };
     this.inputRef = React.createRef();
   }
 
   handleComment = e => {
     this.setState({ comment: e.target.value });
-    console.log(this.state.comment);
   };
 
   handleClick = e => {
@@ -27,7 +26,21 @@ export class Feed extends Component {
     this.inputRef.current.value = '';
   };
 
+  componentDidMount() {
+    fetch('http://localhost:3000/data/commentData.json', {
+      method: 'GET', // GET method는 기본값이라서 생략이 가능합니다.
+    }) // 예시코드에서는 이해를 돕기 위해 명시적으로 기입해뒀습니다.
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          commentList: data,
+        });
+      });
+  }
+
   render() {
+    const { commentList, commnetValue } = this.state;
+
     return (
       <feed className="feed">
         <article className="article">
@@ -38,7 +51,7 @@ export class Feed extends Component {
                 alt="profileImg"
                 className="profileImg"
               />
-              <span className="userId">summer</span>
+              <span className="userId">{this.props.name}</span>
             </div>
             <button>
               <img
@@ -49,30 +62,34 @@ export class Feed extends Component {
             </button>
           </div>
           <div className="photos">
-            <img
-              src="./images/SummerKim/Toy Story -2.jpeg"
-              alt="feedPhoto"
-              className="feedPhoto"
-            />
+            <img src={this.props.img} alt="feedPhoto" className="feedPhoto" />
           </div>
           <div className="icons">
             <div className="icon">
-              <button className="spriteImg heartImg"></button>
-              <button className="spriteImg commentImg"></button>
-              <button className="spriteImg shareImg"></button>
+              <button className="spriteImg heartImg" />
+              <button className="spriteImg commentImg" />
+              <button className="spriteImg shareImg" />
             </div>
-            <button className="spriteImg bookmarkImg"></button>
+            <button className="spriteImg bookmarkImg" />
           </div>
           <div className="info">
             <div className="like">winter님 외 2명이 좋아합니다.</div>
             <div className="contents">
-              <span className="content">winter</span>
-              <button className="readmore">더 보기</button>
+              <span className="contentName">{this.props.name} &nbsp;</span>
+              <span className="content"> {this.props.content} </span>
+              <button className="readmore" />
             </div>
             <div className="commentsWrap">
               <ul className="comments">
-                {this.state.commentList.map(comment => {
-                  return <Comment id={this.state.id} comment={comment} />;
+                {commentList.map(comment => {
+                  return (
+                    <Comment
+                      key={comment.id}
+                      name={comment.userName}
+                      comment={comment.content}
+                      like={comment.isLiked}
+                    />
+                  );
                 })}
               </ul>
             </div>
@@ -82,6 +99,7 @@ export class Feed extends Component {
               type="text"
               className="writeComment"
               placeholder="댓글 달기..."
+              value={commnetValue}
               ref={this.inputRef}
               onChange={this.handleComment}
             />
