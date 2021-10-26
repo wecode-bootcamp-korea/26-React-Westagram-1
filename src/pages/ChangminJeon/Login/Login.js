@@ -9,7 +9,6 @@ class Login extends Component {
     this.state = {
       IdValue: '',
       PwValue: '',
-      disabled: false,
     };
   }
   handleIdInput = event => {
@@ -23,11 +22,11 @@ class Login extends Component {
     });
   };
   render() {
-    const { IdValue, PwValue, disabled } = this.state;
+    const { IdValue, PwValue } = this.state;
     return (
       <div className="loginContainer">
         <div className="container">
-          <header>Instagram</header>
+          <header className="LoginHeader">Instagram</header>
           <form className="inputContainer">
             <input
               className="inputId"
@@ -45,11 +44,11 @@ class Login extends Component {
           <div className="loginButton">
             <Link to="/main-ChangminJeon">
               <button
-                className={
-                  PwValue.length > 4 && IdValue.indexOf('@') !== -1
-                    ? 'activated'
-                    : 'deactivated'
-                }
+                id="loginPageButton"
+                style={{
+                  opacity:
+                    PwValue.length > 4 && IdValue.indexOf('@') !== -1 ? 1 : 0.5,
+                }}
                 type="submit"
                 disabled={
                   PwValue.length > 4 && IdValue.indexOf('@') !== -1
@@ -62,7 +61,9 @@ class Login extends Component {
             </Link>
           </div>
           <footer>
-            <a href="www.naver.com">비밀번호를 잊으셨나요?</a>
+            <a className="LoginFooter" href="www.naver.com">
+              비밀번호를 잊으셨나요?
+            </a>
           </footer>
         </div>
       </div>
