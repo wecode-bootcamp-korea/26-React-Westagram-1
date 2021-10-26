@@ -4,13 +4,14 @@ import '../../../styles/reset.scss';
 import '../../../styles/common.scss';
 import './Login.scss';
 
-const initialState = {
-  username: '',
-  password: '',
-};
-
 class Login extends Component {
-  state = initialState;
+  constructor() {
+    super();
+    this.state = {
+      username: '',
+      password: '',
+    };
+  }
 
   handledInput = e => {
     this.setState({
@@ -71,8 +72,7 @@ class Login extends Component {
                     : true
                 }
               >
-                {' '}
-                로그인{' '}
+                로그인
               </button>
             </form>
             <section className="whenLostPw">

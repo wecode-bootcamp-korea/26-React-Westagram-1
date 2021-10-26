@@ -10,7 +10,6 @@ class Main extends Component {
   render() {
     return (
       <div className="main">
-        {/* <Nav /> */}
         <main>
           <Feeds />
           <MainRight />

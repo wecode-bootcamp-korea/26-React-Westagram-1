@@ -20,7 +20,6 @@ class Reply extends Component {
 
   btnClick = e => {
     this.setState({
-      // replies: this.state.replies.concat(this.state.newReply), -> 이 경우 newReply: e.target.value로 변경
       replies: [...this.state.replies, ...this.state.newReply],
       newReply: '',
     });
