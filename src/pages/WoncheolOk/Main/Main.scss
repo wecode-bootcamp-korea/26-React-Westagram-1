@@ -1,9 +1,18 @@
 @import '../../../styles/variables.scss';
 
-:root {
-  --icon-width-height: 25px;
-  --profileImg-width-height: 35px;
-  --profileImg-width-height-small: 20px;
+@mixin iconWidthHeight {
+  width: 25px;
+  height: 25px;
+}
+
+@mixin profileWidthHeight {
+  width: 35px;
+  height: 35px;
+}
+
+@mixin profileWidthHeightSmall {
+  width: 20px;
+  height: 20px;
 }
 
 body {
@@ -57,8 +66,7 @@ body {
   }
 
   .profileImg_normal {
-    width: var(--profileImg-width-height);
-    height: var(--profileImg-width-height);
+    @include iconWidthHeight;
     border-radius: 50%;
   }
 
@@ -102,8 +110,7 @@ body {
   }
 
   .profileImg_small {
-    width: var(--profileImg-width-height-small);
-    height: var(--profileImg-width-height-small);
+    @include profileWidthHeightSmall;
     border-radius: 50%;
   }
 

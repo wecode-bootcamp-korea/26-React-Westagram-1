@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
-import '../../../styles/reset.scss';
-import '../../../styles/common.scss';
 import './Login.scss';
 
 class Login extends Component {
@@ -20,56 +18,54 @@ class Login extends Component {
   };
 
   btnClick = () => {
+    const { history } = this.props;
     this.setState({
       username: '',
       password: '',
     });
-    this.props.history.push('/main-woncheolok');
+    history.push('/main-woncheolok');
   };
 
   inputKeyPress = e => {
-    if (
-      e.key === 'Enter' &&
-      this.state.username.length > 0 &&
-      this.state.password > 0
-    ) {
+    const { username, password } = this.state;
+    if (e.key === 'Enter' && username.length && password.length) {
       this.btnClick();
     }
   };
 
   render() {
+    const { username, password } = this.state;
+    const { handledInput, inputKeyPress, btnClick } = this;
+
     return (
       <div className="login">
         <main className="wrapper">
           <div className="login-box">
             <header className="logo">Westagram</header>
-            <form action="" id="loginForm">
+            <form action="#" id="loginForm">
               <input
                 type="text"
                 name="username"
                 id="username"
                 placeholder="전화번호, 사용자 이름 또는 이메일"
-                value={this.state.username}
-                onChange={this.handledInput}
-                onKeyPress={this.inputKeyPress}
+                value={username}
+                onChange={handledInput}
+                onKeyPress={inputKeyPress}
               />
               <input
                 type="password"
                 name="password"
                 id="password"
                 placeholder="비밀번호"
-                value={this.state.password}
-                onChange={this.handledInput}
-                onKeyPress={this.inputKeyPress}
+                value={password}
+                onChange={handledInput}
+                onKeyPress={inputKeyPress}
               />
               <button
                 id="loginBtn"
-                onClick={this.btnClick}
+                onClick={btnClick}
                 disabled={
-                  this.state.username.indexOf('@') !== -1 &&
-                  this.state.password.length >= 5
-                    ? false
-                    : true
+                  username.includes('@') && password.length >= 5 ? false : true
                 }
               >
                 로그인

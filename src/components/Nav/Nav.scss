@@ -3,20 +3,20 @@ $border-color: rgb(219, 219, 219);
 $border-sytle: 1.5px solid $border-color;
 $bg-color: #fafafa;
 
-@mixin position-default {
+@mixin positionDefault {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-@mixin position-center {
+@mixin positionCenter {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-@mixin flex-space {
+@mixin flexJustBetween {
   display: flex;
   justify-content: space-between;
 }
@@ -40,7 +40,7 @@ $bg-color: #fafafa;
       width: 70%;
       height: 100%;
       margin: 0 auto;
-      @include flex-space;
+      @include flexJustBetween;
 
       .logo {
         width: 200px;
@@ -83,7 +83,7 @@ $bg-color: #fafafa;
   }
 
   nav {
-    .search-box {
+    .searchBox {
       line-height: 60px;
 
       input {
@@ -102,7 +102,7 @@ $bg-color: #fafafa;
     }
   }
 
-  .icon-wrap {
+  .iconWrap {
     width: 15%;
 
     a {
@@ -126,7 +126,7 @@ $bg-color: #fafafa;
         height: 5px;
         border-radius: 50%;
         background-color: rgb(237, 73, 86);
-        @include position-center;
+        @include positionCenter;
       }
     }
   }

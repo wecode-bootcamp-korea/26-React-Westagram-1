@@ -7,7 +7,6 @@ class Nav extends Component {
     return (
       <div className="navWrapper">
         <header>
-          {/* nav */}
           <nav>
             <div className="logo clearfix">
               <a href="#" className="logoImg">
@@ -22,13 +21,12 @@ class Nav extends Component {
               </h1>
             </div>
 
-            <div className="search-box">
+            <div className="searchBox">
               <input type="text" placeholder="검색" />
             </div>
 
-            <div className="icon-wrap">
+            <div className="iconWrap">
               <a href="#">
-                {/* <img src="/images/BoraPark/ico_explore.png" alt="explore" /> */}
                 <img
                   src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png"
                   alt="explore icon"
@@ -36,7 +34,6 @@ class Nav extends Component {
                 />
               </a>
               <a href="#">
-                {/* <img src="/images/BoraPark/ico_heart.png" alt="heart" /> */}
                 <img
                   src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
                   alt="heart icon"

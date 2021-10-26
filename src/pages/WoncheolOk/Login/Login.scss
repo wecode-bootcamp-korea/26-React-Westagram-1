@@ -1,8 +1,11 @@
 @import '../../../styles/variables.scss';
 
-:root {
-  --main-border-radius: 3px;
-  --input-button-width: 70%;
+@mixin mainBorderRadius {
+  border-radius: 3px;
+}
+
+@mixin inputBtnWidth {
+  width: 70%;
 }
 
 .login {
@@ -38,13 +41,13 @@
   }
 
   input {
-    width: var(--input-button-width);
+    @include inputBtnWidth;
     height: 40px;
     padding-left: 10px;
     margin-bottom: 5px;
     background-color: #fafafa;
     border: 1px solid lightgray;
-    border-radius: var(--main-border-radius);
+    @include mainBorderRadius;
     font-size: 0.8rem;
   }
 
@@ -55,13 +58,13 @@
   }
 
   #loginBtn {
-    width: var(--input-button-width);
+    @include inputBtnWidth;
     height: 30px;
     margin: 5px 0px 5px;
     color: white;
     border: 1px;
     background-color: #0095f6;
-    border-radius: var(--main-border-radius);
+    @include mainBorderRadius;
     font-weight: bold;
     text-align: center;
   }

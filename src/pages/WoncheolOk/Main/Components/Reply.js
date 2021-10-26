@@ -5,6 +5,7 @@ class Reply extends Component {
   constructor() {
     super();
     this.state = {
+      id: 0,
       newReply: '',
       replies: [],
     };
@@ -19,26 +20,30 @@ class Reply extends Component {
   };
 
   btnClick = e => {
+    const { id, replies, newReply } = this.state;
     this.setState({
-      replies: [...this.state.replies, ...this.state.newReply],
+      id: id + 1,
+      replies: [...replies, ...newReply],
       newReply: '',
     });
   };
 
   inputKeyPress = e => {
-    if (e.key === 'Enter' && this.state.newReply.length > 0) {
+    const { newReply } = this.state;
+    if (e.key === 'Enter' && newReply.length) {
       this.btnClick();
       e.preventDefault();
-      return;
     }
   };
 
   render() {
+    const { replies, newReply } = this.state;
+    const { handledInput, inputKeyPress, btnClick } = this;
     return (
       <div>
         <ul id="replies">
-          {this.state.replies.map((reply, index) => {
-            return <ReplyInput key={index} value={reply} />;
+          {replies.map((reply, id) => {
+            return <ReplyInput key={id} value={reply} />;
           })}
         </ul>
 
@@ -50,15 +55,15 @@ class Reply extends Component {
             type="text"
             placeholder="댓글 달기"
             id="replyInput"
-            onChange={this.handledInput}
-            onKeyPress={this.inputKeyPress}
-            value={this.state.newReply}
+            onChange={handledInput}
+            onKeyPress={inputKeyPress}
+            value={newReply}
           />
           <button
             type="button"
             id="replySubmit"
-            onClick={this.btnClick}
-            disabled={this.state.newReply.length > 0 ? false : true}
+            onClick={btnClick}
+            disabled={newReply.length ? false : true}
           >
             게시
           </button>
