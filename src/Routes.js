@@ -22,7 +22,7 @@ export class Routes extends Component {
       <Router>
         <Nav />
         <Switch>
-          <Route exact path="/" component={MainChangmin} />
+          <Route exact path="/" component={LoginChangmin} />
           <Route exact path="/main-BoraPark" component={MainBora} />
           <Route exact path="/Login-BoraPark" component={LoginBora} />
           <Route exact path="/main-ChangminJeon" component={MainChangmin} />

@@ -9,7 +9,7 @@ class Login extends Component {
     this.state = {
       IdValue: '',
       PwValue: '',
-      disabled: true,
+      disabled: false,
     };
   }
   handleIdInput = event => {
@@ -51,7 +51,11 @@ class Login extends Component {
                     : 'deactivated'
                 }
                 type="submit"
-                disabled={disabled}
+                disabled={
+                  PwValue.length > 4 && IdValue.indexOf('@') !== -1
+                    ? false
+                    : true
+                }
               >
                 로그인
               </button>

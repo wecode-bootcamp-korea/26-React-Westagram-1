@@ -73,8 +73,10 @@ a {
 
 .activated {
   opacity: 1;
+  cursor: pointer;
 }
 
 .deactivated {
   opacity: 0.5;
+  cursor: default;
 }
