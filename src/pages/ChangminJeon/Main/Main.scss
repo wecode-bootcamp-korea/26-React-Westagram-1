@@ -20,6 +20,11 @@ $gray-color: rgb(219, 219, 219);
 }
 
 .feeds {
+  display: flex;
+  flex-direction: column;
+}
+
+.feed {
   width: 550px;
   height: 100%;
   border: 1px solid $gray-color;
@@ -132,7 +137,15 @@ ul {
   font-size: 16px;
 }
 
-.uploadButton {
+.onUploadButton {
+  flex: 1;
+  color: blue;
+  text-align: center;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.offUploadButton {
   flex: 1;
   color: blue;
   text-align: center;

@@ -70,3 +70,11 @@ a {
   text-decoration: none;
   color: rgb(67, 103, 142);
 }
+
+.activated {
+  opacity: 1;
+}
+
+.deactivated {
+  opacity: 0.5;
+}

@@ -9,38 +9,24 @@ class Login extends Component {
     this.state = {
       IdValue: '',
       PwValue: '',
-      opacity: false,
       disabled: true,
     };
   }
   handleIdInput = event => {
-    this.setState(
-      {
-        IdValue: event.target.value,
-      }
-      // this.opacityChange
-    );
+    this.setState({
+      IdValue: event.target.value,
+    });
   };
   handlePwInput = event => {
-    this.setState(
-      {
-        PwValue: event.target.value,
-      }
-      // this.opacityChange
-    );
-  };
-  opacityChange = () => {
-    this.state.IdValue.indexOf('@') !== -1 && this.state.PwValue.length > 4
-      ? this.setState({ opacity: 1, disabled: false })
-      : this.setState({ opacity: 0.5, disabled: true });
+    this.setState({
+      PwValue: event.target.value,
+    });
   };
   render() {
+    const { IdValue, PwValue, disabled } = this.state;
     return (
       <div className="loginContainer">
         <div className="container">
-          <p>{this.state.IdValue}</p>
-          <p>IdLength: {this.state.IdValue.length}</p>
-          <p>PwLength: {this.state.PwValue.length}</p>
           <header>Instagram</header>
           <form className="inputContainer">
             <input
@@ -59,15 +45,13 @@ class Login extends Component {
           <div className="loginButton">
             <Link to="/main-ChangminJeon">
               <button
+                className={
+                  PwValue.length > 4 && IdValue.indexOf('@') !== -1
+                    ? 'activated'
+                    : 'deactivated'
+                }
                 type="submit"
-                style={{
-                  opacity:
-                    this.state.PwValue.length > 4 &&
-                    this.state.IdValue.indexOf('@') !== -1
-                      ? 1
-                      : 0.5,
-                }}
-                disabled={this.state.disabled}
+                disabled={disabled}
               >
                 로그인
               </button>
