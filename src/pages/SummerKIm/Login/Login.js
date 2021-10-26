@@ -11,27 +11,26 @@ export class Login extends Component {
   }
 
   handleInput = e => {
-    console.log(e);
     this.setState({ [e.target.name]: e.target.value });
-    // FIXME: 정규표현식 사용
   };
 
-  handleOnClick = () => {
-    if (this.state.userId.length > 1 && this.state.userPw.length > 1) {
-      alert('로그인 되었습니다.');
-    }
+  handleOnClick = e => {
+    e.preventDefault();
+    alert('로그인 되었습니다.');
   };
 
   render() {
-    const idVar = this.state.userId.includes('@');
-    const pwVar = this.state.userPw.length > 5;
+    let regExp =
+      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; // 정규 표현식
+    const idVar = this.state.userId.match(regExp) != null; // 입력값이 정규표현식에 일치하는지
+    const pwVar = this.state.userPw.length > 5 && idVar; // FIXME: id pw 모두 입력해야 로그인 알림창 뜨도록
 
     return (
       <main className="main">
         <div className="container">
           <span id="westagram">westagram</span>
           <form action="#" className="inputWrap">
-            <input // FIXME: email 정규 표현식 사용
+            <input
               type="text"
               id="id"
               placeholder="전화번호, 사용자 이름 또는 이메일"
@@ -55,7 +54,7 @@ export class Login extends Component {
               style={{
                 opacity: idVar && pwVar ? '1' : '0.4',
               }}
-              disabled={!idVar && pwVar}
+              disabled={!idVar && !pwVar}
             >
               로그인
             </button>

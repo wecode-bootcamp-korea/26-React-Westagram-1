@@ -75,10 +75,6 @@
       margin: 10px;
     }
 
-    .heartImg {
-      background-position: -1040px -101px;
-    }
-
     .commentImg {
       background-position: -52px -946px;
     }
@@ -123,6 +119,14 @@
       margin: 20px;
       zoom: 0.2;
       outline: none;
+
+      &.heartWhite {
+        background-position: -1040px -101px;
+      }
+
+      &.heartRed {
+        background-position: -1040px -54px;
+      }
     }
 
     li .removeComment {

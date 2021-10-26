@@ -8,7 +8,13 @@ export class Comment extends Component {
       <li className="comment">
         <span>{this.props.name} &nbsp;</span>
         <span>{this.props.comment}</span>
-        <button className="spriteImg heartImg" />
+        <button
+          className={
+            this.props.like
+              ? 'spriteImg heartImg heartRed'
+              : 'spriteImg heartImg heartWhite'
+          }
+        />
         <button className="spriteImg removeComment" />
       </li>
     );

@@ -7,9 +7,7 @@ export class Feed extends Component {
     this.state = {
       comment: '',
       commentList: [],
-      commnetValue: '',
     };
-    this.inputRef = React.createRef();
   }
 
   handleComment = e => {
@@ -17,19 +15,22 @@ export class Feed extends Component {
   };
 
   handleClick = e => {
+    e.preventDefault();
+
     if (this.state.comment.length > 0) {
       this.setState({
         commentList: this.state.commentList.concat(this.state.comment),
         comment: '',
       });
+      // 새로 작성되는 댓글은 commentList 에 들어가긴 하나, data로 받아오는 형식과 다르기때문에 comment가 자식 component에 전달되지는 못한다.
     }
-    this.inputRef.current.value = '';
+    this.commentValue = '';
   };
 
   componentDidMount() {
     fetch('http://localhost:3000/data/commentData.json', {
-      method: 'GET', // GET method는 기본값이라서 생략이 가능합니다.
-    }) // 예시코드에서는 이해를 돕기 위해 명시적으로 기입해뒀습니다.
+      method: 'GET',
+    })
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -39,7 +40,8 @@ export class Feed extends Component {
   }
 
   render() {
-    const { commentList, commnetValue } = this.state;
+    const { commentList, comment } = this.state;
+    const commentValue = this.state.comment;
 
     return (
       <feed className="feed">
@@ -99,8 +101,7 @@ export class Feed extends Component {
               type="text"
               className="writeComment"
               placeholder="댓글 달기..."
-              value={commnetValue}
-              ref={this.inputRef}
+              value={commentValue}
               onChange={this.handleComment}
             />
             <button className="post" onClick={this.handleClick}>
