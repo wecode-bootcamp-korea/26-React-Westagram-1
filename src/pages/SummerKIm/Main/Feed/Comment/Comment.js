@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 
 export class Comment extends Component {
   render() {
-    // const makeComment =
-    console.log('?');
+    const { name, comment, like } = this.props;
+
     return (
       <li className="comment">
-        <span>{this.props.name} &nbsp;</span>
+        <span className="commentId">{name} &nbsp;</span>
         <span>{this.props.comment}</span>
         <button
           className={
-            this.props.like
+            like
               ? 'spriteImg heartImg heartRed'
               : 'spriteImg heartImg heartWhite'
           }

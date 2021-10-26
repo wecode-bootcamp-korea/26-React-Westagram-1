@@ -6,7 +6,7 @@ export class MainRight extends Component {
       <mainRight className="mainRight">
         <div className="profileRight">
           <img
-            src="./images/SummerKim/Toy Story -2.jpeg"
+            src="./images/SummerKim/woody_.jpeg"
             alt="myProfileImg"
             className="myImg"
           />
@@ -14,15 +14,15 @@ export class MainRight extends Component {
             summer
             <div className="myInfo">wecode 26기 김여름</div>
           </button>
-          <button className="switch"></button>
+          <button className="switch" />
         </div>
         <div className="suggestion">
           <span className="topofBox">스토리</span>
           <button className="storyAll">모두 보기</button>
-          <ur className="stories">
+          <ul className="stories">
             <li className="personStory">
               <img
-                src="./images/SummerKim/Toy Story -2.jpeg"
+                src="./images/SummerKim/woody_.jpeg"
                 alt="personStoryImg"
                 className="personStoryImg"
               />
@@ -30,7 +30,7 @@ export class MainRight extends Component {
             </li>
             <li className="personStory">
               <img
-                src="./images/SummerKim/Toy Story -2.jpeg"
+                src="./images/SummerKim/woody_.jpeg"
                 alt="personStoryImg"
                 className="personStoryImg"
               />
@@ -38,7 +38,7 @@ export class MainRight extends Component {
             </li>
             <li className="personStory">
               <img
-                src="./images/SummerKim/Toy Story -2.jpeg"
+                src="./images/SummerKim/woody_.jpeg"
                 alt="personStoryImg"
                 className="personStoryImg"
               />
@@ -46,7 +46,7 @@ export class MainRight extends Component {
             </li>
             <li className="personStory">
               <img
-                src="./images/SummerKim/Toy Story -2.jpeg"
+                src="./images/SummerKim/woody_.jpeg"
                 alt="personStoryImg"
                 className="personStoryImg"
               />
@@ -54,7 +54,7 @@ export class MainRight extends Component {
             </li>
             <li className="personStory">
               <img
-                src="./images/SummerKim/Toy Story -2.jpeg"
+                src="./images/SummerKim/woody_.jpeg"
                 alt="personStoryImg"
                 className="personStoryImg"
               />
@@ -62,21 +62,21 @@ export class MainRight extends Component {
             </li>
             <li className="personStory">
               <img
-                src="./images/SummerKim/Toy Story -2.jpeg"
+                src="./images/SummerKim/woody_.jpeg"
                 alt="personStoryImg"
                 className="personStoryImg"
               />
               winter
             </li>
-          </ur>
+          </ul>
         </div>
         <div className="push">
           <span className="topofBox">회원님을 위한 추천</span>
           <button className="pushAll">모두 보기</button>
-          <ur className="pushWrap">
+          <ul className="pushWrap">
             <li className="personStory">
               <img
-                src="./images/SummerKim/Toy Story -2.jpeg"
+                src="./images/SummerKim/woody_.jpeg"
                 alt="personStoryImg"
                 className="personStoryImg"
               />
@@ -84,7 +84,7 @@ export class MainRight extends Component {
             </li>
             <li className="personStory">
               <img
-                src="./images/SummerKim/Toy Story -2.jpeg"
+                src="./images/SummerKim/woody_.jpeg"
                 alt="personStoryImg"
                 className="personStoryImg"
               />
@@ -92,7 +92,7 @@ export class MainRight extends Component {
             </li>
             <li className="personStory">
               <img
-                src="./images/SummerKim/Toy Story -2.jpeg"
+                src="./images/SummerKim/woody_.jpeg"
                 alt="personStoryImg"
                 className="personStoryImg"
               />
@@ -100,13 +100,13 @@ export class MainRight extends Component {
             </li>
             <li className="personStory">
               <img
-                src="./images/SummerKim/Toy Story -2.jpeg"
+                src="./images/SummerKim/woody_.jpeg"
                 alt="personStoryImg"
                 className="personStoryImg"
               />
               winter
             </li>
-          </ur>
+          </ul>
         </div>
       </mainRight>
     );

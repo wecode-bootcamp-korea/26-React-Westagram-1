@@ -75,6 +75,14 @@
       margin: 10px;
     }
 
+    .white {
+      background-position: -1040px -101px;
+    }
+
+    .red {
+      background-position: -1040px -50px;
+    }
+
     .commentImg {
       background-position: -52px -946px;
     }
@@ -92,6 +100,17 @@
 
     .info {
       margin: 10px;
+
+      .like,
+      .contents {
+        padding: 5px 0;
+      }
+
+      .like,
+      .contentName,
+      .commentId {
+        font-weight: 700;
+      }
     }
 
     .commentWrap {

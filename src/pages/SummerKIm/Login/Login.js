@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import './Login.scss';
 
 export class Login extends Component {
@@ -14,12 +15,13 @@ export class Login extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleOnClick = e => {
-    e.preventDefault();
+  handleOnClick = () => {
     alert('로그인 되었습니다.');
+    this.props.history.push('/main-SummerKim');
   };
 
   render() {
+    const { userId, userPw } = this.state;
     let regExp =
       /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; // 정규 표현식
     const idVar = this.state.userId.match(regExp) != null; // 입력값이 정규표현식에 일치하는지
@@ -36,7 +38,7 @@ export class Login extends Component {
               placeholder="전화번호, 사용자 이름 또는 이메일"
               name="userId"
               onChange={this.handleInput}
-              value={this.state.userId}
+              value={userId}
               style={{ color: idVar ? 'black' : 'red' }}
             />
             <input
@@ -44,7 +46,7 @@ export class Login extends Component {
               type="password"
               placeholder="비밀번호"
               name="userPw"
-              value={this.state.userPw}
+              value={userPw}
               onChange={this.handleInput}
               style={{ color: pwVar ? 'black' : 'red' }}
             />

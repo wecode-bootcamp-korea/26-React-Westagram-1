@@ -32,10 +32,14 @@ export class Main extends Component {
           {feedList.map(feed => {
             return (
               <Feed
-                key={feed.key}
+                key={feed.id}
                 name={feed.userName}
                 img={feed.pictur}
                 content={feed.content}
+                likeFeed={feed.isLikedFeed}
+                likedUserName={feed.likedUserName}
+                likedCount={feed.likedCount}
+                commentList={feed.commentList}
               />
             );
           })}
