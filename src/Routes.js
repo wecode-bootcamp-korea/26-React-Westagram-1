@@ -15,21 +15,20 @@ import MainSummer from './pages/SummerKim/Main/Main';
 import LoginWoncheol from './pages/WoncheolOk/Login/Login';
 import MainWoncheol from './pages/WoncheolOk/Main/Main';
 
-// import 한 컴포넌트에 대한 경로를 각각 설정해줍니다.
 export class Routes extends Component {
   render() {
     return (
       <Router>
         <Nav />
         <Switch>
-          <Route exact path="/main-BoraPark" component={MainBora} />
-          <Route exact path="/Login-BoraPark" component={LoginBora} />
-          <Route exact path="/main-ChangminJeon" component={MainChangmin} />
-          <Route exact path="/Login-ChangminJeon" component={LoginChangmin} />
-          <Route exact path="/main-SummerKim" component={MainSummer} />
-          <Route exact path="/Login-SummerKim" component={LoginSummer} />
+          <Route exact path="/" component={LoginWoncheol} />
           <Route exact path="/main-WoncheolOK" component={MainWoncheol} />
-          <Route exact path="/Login-WoncheolOK" component={LoginWoncheol} />
+          <Route exact path="/Login-BoraPark" component={LoginBora} />
+          <Route exact path="/main-BoraPark" component={MainBora} />
+          <Route exact path="/Login-ChangminJeon" component={LoginChangmin} />
+          <Route exact path="/main-ChangminJeon" component={MainChangmin} />
+          <Route exact path="/Login-SummerKim" component={LoginSummer} />
+          <Route exact path="/main-SummerKim" component={MainSummer} />
         </Switch>
       </Router>
     );

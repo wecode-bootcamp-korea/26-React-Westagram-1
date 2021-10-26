@@ -3,129 +3,131 @@ $border-color: rgb(219, 219, 219);
 $border-sytle: 1.5px solid $border-color;
 $bg-color: #fafafa;
 
-@mixin position-default {
+@mixin positionDefault {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-@mixin position-center {
+@mixin positionCenter {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-@mixin flex-space {
+@mixin flexJustBetween {
   display: flex;
   justify-content: space-between;
 }
 
-body {
-  background-color: $bg-color;
-  color: #454545;
-}
+.navWrapper {
+  body {
+    background-color: $bg-color;
+    color: #454545;
+  }
 
-header {
-  width: 100%;
-  height: 60px;
-  background-color: #fff;
-  border-bottom: 1px solid $border-color;
-  position: fixed;
-  top: 0;
-  z-index: 999;
+  header {
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    border-bottom: 1px solid $border-color;
+    position: fixed;
+    top: 0;
+    z-index: 999;
 
-  nav {
-    width: 70%;
-    height: 100%;
-    margin: 0 auto;
-    @include flex-space;
+    nav {
+      width: 70%;
+      height: 100%;
+      margin: 0 auto;
+      @include flexJustBetween;
 
-    .logo {
-      width: 200px;
-      line-height: 60px;
+      .logo {
+        width: 200px;
+        line-height: 60px;
 
-      .logoImg {
-        display: block;
-        margin-top: 17px;
-        margin-left: 12px;
-        float: left;
-
-        img {
+        .logoImg {
           display: block;
-          width: 26px;
-        }
-      }
+          margin-top: 17px;
+          margin-left: 12px;
+          float: left;
 
-      .logoTxt {
-        font-size: 1.5rem;
-        float: right;
-        position: relative;
-
-        a {
-          display: block;
-
-          &::before {
-            content: '';
+          img {
             display: block;
-            width: 1.8px;
-            height: 24px;
-            background-color: #333;
-            position: absolute;
-            top: 18px;
-            left: -19px;
+            width: 26px;
+          }
+        }
+
+        .logoTxt {
+          font-size: 1.5rem;
+          float: right;
+          position: relative;
+
+          a {
+            display: block;
+
+            &::before {
+              content: '';
+              display: block;
+              width: 1.8px;
+              height: 24px;
+              background-color: #333;
+              position: absolute;
+              top: 18px;
+              left: -19px;
+            }
           }
         }
       }
     }
   }
-}
 
-nav {
-  .search-box {
-    line-height: 60px;
+  nav {
+    .searchBox {
+      line-height: 60px;
 
-    input {
-      padding: 4px 20px;
-      background: $bg-color;
-      border: $border-sytle;
-      border-radius: 3px;
+      input {
+        padding: 4px 20px;
+        background: $bg-color;
+        border: $border-sytle;
+        border-radius: 3px;
 
-      &::placeholder {
-        color: rgb(171, 173, 176);
-        text-align: center;
-        background: url(../../assets/images/ico_search.png) no-repeat 35%
-          center/12px 12px;
+        &::placeholder {
+          color: rgb(171, 173, 176);
+          text-align: center;
+          background: url(../../assets/images/ico_search.png) no-repeat 35%
+            center/12px 12px;
+        }
       }
     }
   }
-}
 
-.icon-wrap {
-  width: 15%;
+  .iconWrap {
+    width: 15%;
 
-  a {
-    display: block;
-    float: left;
-    width: 33.33%;
-    height: 100px;
-    position: relative;
-
-    img {
+    a {
       display: block;
-      width: 24px;
-      margin: 17px auto;
-      line-height: 100px;
-    }
+      float: left;
+      width: 33.33%;
+      height: 100px;
+      position: relative;
 
-    &:nth-child(2)::after {
-      content: '';
-      display: block;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background-color: rgb(237, 73, 86);
-      @include position-center;
+      img {
+        display: block;
+        width: 24px;
+        margin: 17px auto;
+        line-height: 100px;
+      }
+
+      &:nth-child(2)::after {
+        content: '';
+        display: block;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: rgb(237, 73, 86);
+        @include positionCenter;
+      }
     }
   }
 }
