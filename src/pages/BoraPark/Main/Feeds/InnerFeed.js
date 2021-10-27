@@ -3,38 +3,42 @@ import ChtFrm from './ChtFrm';
 import ChtList from './ChtList';
 
 class InnerFeed extends Component {
-  // handleChange = e => {
-  //   this.setState({ input: e.target.value });
-  // };
+  state = {
+    lists: this.props.feeds.lists,
+  };
 
-  // handleCreate = e => {
-  //   const { input, lists } = this.state;
-  //   this.setState({
-  //     input: '',
-  //     lists: lists.concat({
-  //       id: this.id++,
-  //       text: input,
-  //     }),
-  //   });
-  // };
+  handleChange = e => {
+    this.setState({ input: e.target.value });
+  };
 
-  // handleKeyPress = e => {
-  //   if (e.key.code === 13) {
-  //     this.handleCreate();
-  //   }
-  // };
+  handleCreate = e => {
+    const { input, lists } = this.state;
+    this.setState({
+      input: '',
+      lists: lists.concat({
+        id: this.id++,
+        text: input,
+      }),
+    });
+  };
 
-  // handleRemove = id => {
-  //   const { lists } = this.state;
-  //   this.setState({
-  //     lists: lists.filter(list => list.id !== id),
-  //   });
-  // };
+  handleKeyPress = e => {
+    if (e.key.code === 13) {
+      this.handleCreate();
+    }
+  };
+
+  handleRemove = id => {
+    const { lists } = this.state;
+    this.setState({
+      lists: lists.filter(list => list.id !== id),
+    });
+  };
 
   render() {
     const { feeds, input } = this.props;
-    console.log(feeds);
-    // const { handleRemove, handleChange, handleCreate, handleKeyPress } = this;
+    console.log(this.state.lists);
+    const { handleRemove, handleChange, handleCreate, handleKeyPress } = this;
     return (
       feeds &&
       feeds.map(comment => {
@@ -88,17 +92,17 @@ class InnerFeed extends Component {
             </div>
 
             <ChtList
-              name={comment.name}
+              name={comment.userName}
               lists={comment.lists}
-              // onRemove={handleRemove}
+              onRemove={handleRemove}
             />
 
             <ChtFrm
               value={input}
               lists={comment.lists}
-              // onChange={handleChange}
-              // onKeyPress={handleKeyPress}
-              // onCreate={handleCreate}
+              onChange={handleChange}
+              onKeyPress={handleKeyPress}
+              onCreate={handleCreate}
             />
           </div>
         );
