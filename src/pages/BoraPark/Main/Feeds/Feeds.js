@@ -1,19 +1,25 @@
 import { Component } from 'react';
-import Profile from './Profile';
 import InnerFeed from './InnerFeed';
-import ChtFrm from './ChtFrm';
-import ChtList from './ChtList';
 
 class Feeds extends Component {
-  id = 1;
+  id = 3;
 
   state = {
     input: '',
-    lists: [
-      { id: 0, text: 'dkei993 너무 재밌었겠다~~나중에 나랑도 연말파티하자~' },
-    ],
+    feeds: [],
+    lists: [],
   };
-
+  componentDidMount() {
+    fetch('http://localhost:3000/data/commentData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          feeds: res,
+        });
+      });
+  }
   handleChange = e => {
     this.setState({ input: e.target.value });
   };
@@ -43,21 +49,22 @@ class Feeds extends Component {
   };
 
   render() {
-    const { input, lists } = this.state;
-    const { handleChange, handleCreate, handleKeyPress, handleRemove } = this;
+    const { feeds } = this.state;
+    // const { handleChange, handleCreate, handleKeyPress, handleRemove } = this;
     return (
-      <>
-        <Profile />
-        <InnerFeed>
-          <ChtList lists={lists} onRemove={handleRemove} />
+      <div>
+        {/* <Profile /> */}
+        <InnerFeed feeds={feeds}>
+          {/* <ChtList name={name} list={lists} onRemove={handleRemove} /> */}
         </InnerFeed>
-        <ChtFrm
+
+        {/* <ChtFrm
           value={input}
           onChange={handleChange}
           onKeyPress={handleKeyPress}
           onCreate={handleCreate}
-        />
-      </>
+        /> */}
+      </div>
     );
   }
 }

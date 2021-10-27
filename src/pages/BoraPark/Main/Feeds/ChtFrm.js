@@ -16,8 +16,8 @@ class ChtFrm extends Component {
         />
 
         <button
-          onClick={e => {
-            e.preventDefault();
+          onClick={() => {
+            // e.preventDefault();
             onCreate();
           }}
           type="submit"

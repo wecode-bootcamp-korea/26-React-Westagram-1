@@ -7,13 +7,10 @@ import './Main.scss';
 class Main extends Component {
   render() {
     return (
-      <>
-        {/* <Nav /> */}
-        <main id="feed">
-          <Feeds />
-          <Aside />
-        </main>
-      </>
+      <main id="feed">
+        <Feeds />
+        <Aside />
+      </main>
     );
   }
 }
