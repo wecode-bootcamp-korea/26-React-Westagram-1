@@ -1,11 +1,16 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
-export class Main extends Component {
+import Feeds from '../../BoraPark/Main/Feeds/Feeds';
+import Aside from '../../BoraPark/Main/Aside/Aside';
+import './Main.scss';
+
+class Main extends Component {
   render() {
     return (
-      <div>
-        <div>Hello</div>
-      </div>
+      <main id="feed">
+        <Feeds />
+        <Aside />
+      </main>
     );
   }
 }
