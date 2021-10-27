@@ -3,16 +3,38 @@ import ChtFrm from './ChtFrm';
 import ChtList from './ChtList';
 
 class InnerFeed extends Component {
+  // handleChange = e => {
+  //   this.setState({ input: e.target.value });
+  // };
+
+  // handleCreate = e => {
+  //   const { input, lists } = this.state;
+  //   this.setState({
+  //     input: '',
+  //     lists: lists.concat({
+  //       id: this.id++,
+  //       text: input,
+  //     }),
+  //   });
+  // };
+
+  // handleKeyPress = e => {
+  //   if (e.key.code === 13) {
+  //     this.handleCreate();
+  //   }
+  // };
+
+  // handleRemove = id => {
+  //   const { lists } = this.state;
+  //   this.setState({
+  //     lists: lists.filter(list => list.id !== id),
+  //   });
+  // };
+
   render() {
-    const {
-      feeds,
-      input,
-      handleRemove,
-      handleChange,
-      handleCreate,
-      handleKeyPress,
-    } = this.props;
-    // console.log(feeds);
+    const { feeds, input } = this.props;
+    console.log(feeds);
+    // const { handleRemove, handleChange, handleCreate, handleKeyPress } = this;
     return (
       feeds &&
       feeds.map(comment => {
@@ -68,14 +90,15 @@ class InnerFeed extends Component {
             <ChtList
               name={comment.name}
               lists={comment.lists}
-              onRemove={handleRemove}
+              // onRemove={handleRemove}
             />
 
             <ChtFrm
               value={input}
-              onChange={handleChange}
-              onKeyPress={handleKeyPress}
-              onCreate={handleCreate}
+              lists={comment.lists}
+              // onChange={handleChange}
+              // onKeyPress={handleKeyPress}
+              // onCreate={handleCreate}
             />
           </div>
         );

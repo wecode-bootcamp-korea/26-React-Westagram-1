@@ -7,7 +7,6 @@ class Feeds extends Component {
   state = {
     input: '',
     feeds: [],
-    lists: [],
   };
   componentDidMount() {
     fetch('http://localhost:3000/data/commentData.json', {
@@ -20,34 +19,7 @@ class Feeds extends Component {
         });
       });
   }
-  handleChange = e => {
-    this.setState({ input: e.target.value });
-  };
-
-  handleCreate = e => {
-    const { input, lists } = this.state;
-    this.setState({
-      input: '',
-      lists: lists.concat({
-        id: this.id++,
-        text: input,
-      }),
-    });
-  };
-
-  handleKeyPress = e => {
-    if (e.key.code === 13) {
-      this.handleCreate();
-    }
-  };
-
-  handleRemove = id => {
-    const { lists } = this.state;
-    this.setState({
-      lists: lists.filter(list => list.id !== id),
-    });
-  };
-
+  /* 여기 원래 함수들 자리 */
   render() {
     const { feeds } = this.state;
     // const { handleChange, handleCreate, handleKeyPress, handleRemove } = this;

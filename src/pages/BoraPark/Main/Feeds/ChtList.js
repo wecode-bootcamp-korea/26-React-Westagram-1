@@ -2,11 +2,23 @@ import React, { Component } from 'react';
 import ChtItem from './ChtItem';
 
 class ChtList extends Component {
+  handleRemove = id => {
+    const { lists } = this.state;
+    this.setState({
+      lists: lists.filter(list => list.id !== id),
+    });
+  };
   render() {
-    const { lists, onRemove } = this.props;
+    const { lists, name } = this.props;
 
-    const commentList = lists.map(({ id, text }) => (
-      <ChtItem id={id} text={text} onRemove={onRemove} key={id} />
+    const commentList = lists.map(({ id, name, text }) => (
+      <ChtItem
+        id={id}
+        name={name}
+        text={text}
+        onRemove={this.handleRemove}
+        key={id}
+      />
     ));
     return <div>{commentList}</div>;
   }
