@@ -23,6 +23,7 @@ class Login extends Component {
   };
   render() {
     const { IdValue, PwValue } = this.state;
+    const validation = PwValue.length > 4 && IdValue.indexOf('@') !== -1;
     return (
       <div className="loginContainer">
         <div className="container">
@@ -46,15 +47,10 @@ class Login extends Component {
               <button
                 id="loginPageButton"
                 style={{
-                  opacity:
-                    PwValue.length > 4 && IdValue.indexOf('@') !== -1 ? 1 : 0.5,
+                  opacity: validation ? 1 : 0.5,
                 }}
                 type="submit"
-                disabled={
-                  PwValue.length > 4 && IdValue.indexOf('@') !== -1
-                    ? false
-                    : true
-                }
+                disabled={validation ? false : true}
               >
                 로그인
               </button>
