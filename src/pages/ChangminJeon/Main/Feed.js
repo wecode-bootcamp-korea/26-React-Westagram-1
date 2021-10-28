@@ -3,8 +3,14 @@ import Comments from './Comments';
 
 class Feed extends Component {
   render() {
-    const { input, commentBox, commentUpdate, onInputChange, clickUpdate } =
-      this.props;
+    const {
+      input,
+      commentBox,
+      commentUpdate,
+      onInputChange,
+      clickUpdate,
+      onRemove,
+    } = this.props;
     return (
       <div>
         <div className="feed">
@@ -42,7 +48,7 @@ class Feed extends Component {
             <span id="likeNumbers">좋아요 10개</span>
           </div>
           <ul className="comments">
-            <Comments comment={commentBox} />
+            <Comments comment={commentBox} onRemove={onRemove} />
           </ul>
           <div className="commentBox">
             <img src="/images/ChangminJeon/smile.png" alt="smile" />

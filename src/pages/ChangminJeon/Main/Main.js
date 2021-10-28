@@ -53,9 +53,17 @@ class Main extends Component {
       input: '',
     });
   };
+
+  onRemove = deleteId => {
+    const { commentBox } = this.state;
+    const deleteBox = commentBox.filter(text => text.id !== deleteId);
+    this.setState({
+      commentBox: deleteBox,
+    });
+  };
   render() {
     const { input, commentBox } = this.state;
-    const { commentUpdate, onInputChange, clickUpdate } = this;
+    const { onRemove, commentUpdate, onInputChange, clickUpdate } = this;
     return (
       <div className="mainContainer">
         <div className="main">
@@ -66,6 +74,7 @@ class Main extends Component {
               commentUpdate={commentUpdate}
               onInputChange={onInputChange}
               clickUpdate={clickUpdate}
+              onRemove={onRemove}
             />
           </div>
           <MainRight />

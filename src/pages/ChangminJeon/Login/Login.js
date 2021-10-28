@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+
 import './Login.scss';
 
 class Login extends Component {
@@ -16,11 +17,36 @@ class Login extends Component {
       IdValue: event.target.value,
     });
   };
+
   handlePwInput = event => {
     this.setState({
       PwValue: event.target.value,
     });
   };
+
+  goToMain = () => {
+    this.props.history.push('/main-ChangminJeon');
+  };
+  // goToMain = () => {
+  //   // this.props.history.push('/main-ChangminJeon');
+  //   fetch('http://10.58.1.234:8000/jbj/login', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       email: this.state.IdValue,
+  //       password: this.state.PwValue,
+  //     }),
+  //     // GET method는 기본값이라서 생략이 가능합니다.
+  //   }) // 예시코드에서는 이해를 돕기 위해 명시적으로 기입해뒀습니다.
+  //     .then(response => response.json())
+  //     .then(result => {
+  //       if (result.message === 'INVALID_USER') {
+  //         console.log(result);
+  //         alert('실패!!!');
+  //       } else {
+  //         this.props.history.push('/main-ChangminJeon');
+  //       }
+  //     });
+  // };
   render() {
     const { IdValue, PwValue } = this.state;
     const validation = PwValue.length > 4 && IdValue.indexOf('@') !== -1;
@@ -43,18 +69,17 @@ class Login extends Component {
             />
           </form>
           <div className="loginButton">
-            <Link to="/main-ChangminJeon">
-              <button
-                id="loginPageButton"
-                style={{
-                  opacity: validation ? 1 : 0.5,
-                }}
-                type="submit"
-                disabled={validation ? false : true}
-              >
-                로그인
-              </button>
-            </Link>
+            <button
+              onClick={this.goToMain}
+              style={{
+                opacity: validation ? 1 : 0.5,
+                cursor: validation ? 'pointer' : 'default',
+              }}
+              type="button"
+              disabled={validation ? false : true}
+            >
+              로그인
+            </button>
           </div>
           <footer>
             <a className="LoginFooter" href="www.naver.com">
@@ -67,4 +92,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);
