@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Comments extends Component {
   render() {
     const { comment, onRemove } = this.props;
-    const box = comment.map(comment => {
+    return comment.map(comment => {
       return (
         <li key={comment.id} className="comment">
           <span>{comment.content}</span>
@@ -13,8 +13,6 @@ class Comments extends Component {
         </li>
       );
     });
-
-    return <>{box}</>;
   }
 }
 
