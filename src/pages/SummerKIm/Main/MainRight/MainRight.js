@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 export class MainRight extends Component {
+  // TODO: 스토리, 추천 맵으로 구현
   render() {
     return (
       <mainRight className="mainRight">

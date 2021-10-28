@@ -7,7 +7,7 @@ export class Comment extends Component {
     return (
       <li className="comment">
         <span className="commentId">{name} &nbsp;</span>
-        <span>{this.props.comment}</span>
+        <span>{comment}</span>
         <button
           className={
             like

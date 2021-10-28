@@ -157,9 +157,14 @@
       outline: none;
     }
 
-    .post {
+    .deactivate {
       color: $activation;
       opacity: 0.4;
+    }
+
+    .activate {
+      color: $activation;
+      opacity: 1;
     }
   }
 }

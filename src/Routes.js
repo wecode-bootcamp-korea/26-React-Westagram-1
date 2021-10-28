@@ -9,6 +9,7 @@ import MainBora from './pages/BoraPark/Main/Main';
 import LoginChangmin from './pages/ChangminJeon/Login/Login';
 import MainChangmin from './pages/ChangminJeon/Main/Main';
 // 여름's 컴포넌트
+import SignupSummer from './pages/SummerKim/Signup/Signup';
 import LoginSummer from './pages/SummerKim/Login/Login';
 import MainSummer from './pages/SummerKim/Main/Main';
 // 원철's 컴포넌트
@@ -22,12 +23,13 @@ export class Routes extends Component {
       <Router>
         <Nav />
         <Switch>
+          <Route exact path="/" component={LoginSummer} />
+          <Route exact path="/Signup-SummerKim" component={SignupSummer} />
+          <Route exact path="/main-SummerKim" component={MainSummer} />
           <Route exact path="/main-BoraPark" component={MainBora} />
           <Route exact path="/Login-BoraPark" component={LoginBora} />
           <Route exact path="/main-ChangminJeon" component={MainChangmin} />
           <Route exact path="/Login-ChangminJeon" component={LoginChangmin} />
-          <Route exact path="/main-SummerKim" component={MainSummer} />
-          <Route exact path="/Login-SummerKim" component={LoginSummer} />
           <Route exact path="/main-WoncheolOK" component={MainWoncheol} />
           <Route exact path="/Login-WoncheolOK" component={LoginWoncheol} />
         </Switch>

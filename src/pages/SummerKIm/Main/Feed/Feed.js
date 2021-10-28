@@ -22,21 +22,8 @@ export class Feed extends Component {
         commentList: this.state.commentList.concat(this.state.comment),
         comment: '',
       });
-      // 새로 작성되는 댓글은 commentList 에 들어가긴 하나, data로 받아오는 형식과 다르기때문에 comment가 자식 component에 전달되지는 못한다.
     }
   };
-
-  // componentDidMount() {
-  //   fetch('http://localhost:3000/data/commentData.json', {
-  //     method: 'GET',
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       this.setState({
-  //         commentList: data,
-  //       });
-  //     });
-  // }
 
   render() {
     const { comment } = this.state;
@@ -44,7 +31,6 @@ export class Feed extends Component {
       name,
       img,
       content,
-      isLikedFeed,
       likeFeed,
       likedUserName,
       likedCount,
@@ -116,7 +102,10 @@ export class Feed extends Component {
               value={comment}
               onChange={this.handleComment}
             />
-            <button className="post" onClick={this.handleClick}>
+            <button
+              className={comment.length > 1 ? 'activate' : 'deactivate'}
+              onClick={this.handleClick}
+            >
               게시
             </button>
           </form>
