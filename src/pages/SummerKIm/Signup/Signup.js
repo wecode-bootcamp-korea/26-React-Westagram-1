@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './Signup.scss';
 
 export class Signup extends Component {
@@ -14,17 +15,19 @@ export class Signup extends Component {
     };
   }
 
-  handleInput = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  inpitUserInfo = e => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
   };
 
-  handleOnClick = e => {
+  submitUserSignup = e => {
     e.preventDefault();
+    const { userId, userPw } = this.state;
     fetch('https://westagram-signup.herokuapp.com/signup', {
       method: 'POST',
       body: JSON.stringify({
-        email: this.state.userId,
-        password: this.state.userPw,
+        email: userId,
+        password: userPw,
       }),
     })
       .then(response => response.json())
@@ -33,20 +36,21 @@ export class Signup extends Component {
     this.props.history.push('/');
   };
 
-  // componentDidMount() {}
-
   render() {
     const { userId, userName, userAddress, userPhone, userPwCheck, userPw } =
       this.state;
-    let regExpEmail =
-      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; // 정규 표현식
-    let regExpAddress =
+
+    let EmailregExp =
+      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+    let AddressregExp =
       /(([가-힣A-Za-z·\d~\-\.]{2,}(로|길).[\d]+)|([가-힣A-Za-z·\d~\-\.]+(읍|동)\s)[\d]+)/;
-    let regExpPhone = /^\d{3}-\d{3,4}-\d{4}$/;
-    const idVar = this.state.userId.match(regExpEmail) != null; // 입력값이 정규표현식에 일치하는지
-    const addressVar = this.state.userAddress.match(regExpAddress) != null; // 입력값이 정규표현식에 일치하는지
-    const phoneVar = this.state.userAddress.match(regExpPhone) != null; // 입력값이 정규표현식에 일치하는지
-    const pwVar = this.state.userPw.length > 5 && idVar; // FIXME: id pw 모두 입력해야 로그인 알림창 뜨도록
+    let PhoneregExp = /^\d{3}-\d{3,4}-\d{4}$/;
+
+    const idValid = userId.match(EmailregExp) != null;
+    const nameValid = userName;
+    const addressValid = userAddress.match(AddressregExp) != null;
+    const phoneValid = userAddress.match(PhoneregExp) != null;
+    const pwValid = userPw.length > 5;
 
     return (
       <div className="signup">
@@ -55,65 +59,56 @@ export class Signup extends Component {
           <form action="#" className="inputWrap">
             <input
               type="text"
-              id="id"
+              className={`id ${idValid ? '' : 'colorRed'}`}
               placeholder="이메일"
               name="userId"
-              onChange={this.handleInput}
+              onChange={this.inpitUserInfo}
               value={userId}
-              style={{ color: idVar ? 'black' : 'red' }}
             />
             <input
               type="text"
-              id="name"
+              className={`name ${nameValid ? '' : 'colorRed'}`}
               placeholder="사용자 이름"
               name="userName"
-              onChange={this.handleInput}
+              onChange={this.inpitUserInfo}
               value={userName}
-              style={{ color: idVar ? 'black' : 'red' }}
             />
             <input
               type="text"
-              id="address"
+              className={`address ${addressValid ? '' : 'colorRed'}`}
               placeholder="주소"
               name="userAddress"
-              onChange={this.handleInput}
+              onChange={this.inpitUserInfo}
               value={userAddress}
-              style={{ color: addressVar ? 'black' : 'red' }}
             />
             <input
               type="text"
-              id="phone"
+              className={`phone ${phoneValid ? '' : 'colorRed'}`}
               placeholder="핸드폰번호"
               name="userPhone"
-              onChange={this.handleInput}
+              onChange={this.inpitUserInfo}
               value={userPhone}
-              style={{ color: phoneVar ? 'black' : 'red' }}
             />
             <input
-              id="pw"
               type="password"
+              className={`pw ${pwValid ? '' : 'colorRed'}`}
               placeholder="비밀번호"
               name="userPw"
               value={userPw}
-              onChange={this.handleInput}
-              style={{ color: pwVar ? 'black' : 'red' }}
+              onChange={this.inpitUserInfo}
             />
             <input
-              id="pw"
               type="password"
+              className={`pw ${pwValid ? '' : 'colorRed'}`}
               placeholder="비밀번호"
               name="userPwCheck"
               value={userPwCheck}
-              onChange={this.handleInput}
-              style={{ color: pwVar ? 'black' : 'red' }}
+              onChange={this.inpitUserInfo}
             />
             <button
               id="loginBtn"
+              className={`loginBtn ${!(idValid && pwValid) ? '' : 'activate'}`}
               onClick={this.handleOnClick}
-              style={{
-                opacity: idVar && pwVar ? '1' : '0.4',
-              }}
-              // disabled={!idVar && !pwVar}
             >
               회원가입
             </button>
@@ -128,4 +123,4 @@ export class Signup extends Component {
   }
 }
 
-export default Signup;
+export default withRouter(Signup);

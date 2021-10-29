@@ -31,16 +31,21 @@ $activation: #0095f6;
     margin: 30px 40px 100px 40px;
   }
 
-  input {
+  .inputInfo {
     padding: 7px;
     width: 100%;
     margin-bottom: 5px;
     border: 1px solid $box-border;
     background-color: $background;
     outline: none;
+    color: red;
+
+    .colorRed {
+      color: black;
+    }
   }
 
-  #loginBtn {
+  .loginBtn {
     padding: 5px;
     width: 100%;
     margin-top: 5px;
@@ -52,11 +57,6 @@ $activation: #0095f6;
 
   .activate {
     opacity: 1;
-  }
-
-  .diactivate:disabled {
-    background-color: $activation;
-    opacity: 0.4;
   }
 
   #forgotPw {

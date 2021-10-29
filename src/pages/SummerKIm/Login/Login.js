@@ -11,24 +11,26 @@ export class Login extends Component {
     };
   }
 
-  handleInput = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  inpitUserInfo = e => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
   };
 
-  handleOnClick = e => {
+  submitUserLogin = e => {
     e.preventDefault();
+    const { userId, userPw } = this.state;
     fetch('https://westagram-signup.herokuapp.com/login ', {
       method: 'POST',
       body: JSON.stringify({
-        email: this.state.userId,
-        password: this.state.userPw,
+        email: userId,
+        password: userPw,
       }),
     })
       .then(response => response.json())
       .then(response => {
-        if (response.access_token) {
-          localStorage.setItem('wtw-token', response.access_token);
-          console.log('wtw-token', response.access_token);
+        if (response.token) {
+          localStorage.setItem('wtw-token', response.token);
+          console.log('wtw-token', response.token);
           alert('로그인 되었습니다!');
         }
       });
@@ -37,12 +39,11 @@ export class Login extends Component {
 
   render() {
     const { userId, userPw } = this.state;
-    let regExp =
+    let EmailregExp =
       /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-    const idVar = this.state.userId.match(regExp) != null;
-    const pwVar = this.state.userPw.length > 5;
-    const loginVar =
-      this.state.userId.match(regExp) != null && this.state.userPw.length > 5;
+    const idValid = userId.match(EmailregExp) != null;
+    const pwValid = userPw.length > 5;
+    const loginVar = idValid && pwValid;
 
     return (
       <main className="main">
@@ -50,30 +51,25 @@ export class Login extends Component {
           <span id="westagram">westagram</span>
           <form action="#" className="inputWrap">
             <input
+              className={`inputInfo ${!idValid ? '' : 'colorRed'}`}
               type="text"
               id="id"
-              placeholder="전화번호, 사용자 이름 또는 이메일"
+              placeholder="이메일"
               name="userId"
-              onChange={this.handleInput}
               value={userId}
-              style={{ color: idVar ? 'black' : 'red' }}
+              onChange={this.inpitUserInfo}
             />
             <input
-              id="pw"
               type="password"
+              className={`inputInfo ${pwValid ? '' : 'colorRed'}`}
               placeholder="비밀번호"
               name="userPw"
               value={userPw}
-              onChange={this.handleInput}
-              style={{ color: pwVar ? 'black' : 'red' }}
+              onChange={this.inpitUserInfo}
             />
             <button
-              id="loginBtn"
-              onClick={this.handleOnClick}
-              style={{
-                opacity: loginVar ? '1' : '0.4',
-              }}
-              disabled={!loginVar}
+              className={`loginBtn ${!loginVar ? '' : 'activate'}`}
+              onClick={this.submitUserLogin}
             >
               로그인
             </button>
