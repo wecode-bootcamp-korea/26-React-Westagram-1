@@ -31,29 +31,31 @@ export class Login extends Component {
         if (response.token) {
           localStorage.setItem('wtw-token', response.token);
           console.log('wtw-token', response.token);
-          alert('로그인 되었습니다!');
         }
       });
-    this.props.history.push('/main-SummerKim');
+    alert('로그인 되었습니다!');
+    // this.props.history.push('/main-SummerKim');
+    // alert('로그인 정보를 정확하게 입력해주세요');
   };
 
   render() {
     const { userId, userPw } = this.state;
+
     let EmailregExp =
       /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
     const idValid = userId.match(EmailregExp) != null;
     const pwValid = userPw.length > 5;
     const loginVar = idValid && pwValid;
 
     return (
-      <main className="main">
+      <div className="login">
         <div className="container">
-          <span id="westagram">westagram</span>
+          <span className="westagram">westagram</span>
           <form action="#" className="inputWrap">
             <input
-              className={`inputInfo ${!idValid ? '' : 'colorRed'}`}
+              className={`inputInfo ${idValid ? '' : 'colorRed'}`}
               type="text"
-              id="id"
               placeholder="이메일"
               name="userId"
               value={userId}
@@ -68,7 +70,8 @@ export class Login extends Component {
               onChange={this.inpitUserInfo}
             />
             <button
-              className={`loginBtn ${!loginVar ? '' : 'activate'}`}
+              className={`loginBtn ${!loginVar ? 'disabled' : 'activate'}`}
+              type="button"
               onClick={this.submitUserLogin}
             >
               로그인
@@ -79,7 +82,7 @@ export class Login extends Component {
           </a>
           {/* <Link to="/main">메인으로 바로가기</Link> */}
         </div>
-      </main>
+      </div>
     );
   }
 }

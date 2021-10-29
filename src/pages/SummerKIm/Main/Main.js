@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Feed from './Feed/Feed';
-import MainRight from './MainRight/MainRight';
+import Aside from './Aside/Aside';
 import './Main.scss';
 
 export class Main extends Component {
@@ -44,7 +44,7 @@ export class Main extends Component {
             );
           })}
         </div>
-        <MainRight />
+        <Aside />
       </section>
     );
   }

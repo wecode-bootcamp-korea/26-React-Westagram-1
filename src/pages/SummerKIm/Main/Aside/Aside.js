@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-export class MainRight extends Component {
+export class Aside extends Component {
   // TODO: 스토리, 추천 맵으로 구현
   render() {
     return (
-      <mainRight className="mainRight">
+      <div className="aside">
         <div className="profileRight">
           <img
             src="./images/SummerKim/woody_.jpeg"
@@ -109,9 +109,9 @@ export class MainRight extends Component {
             </li>
           </ul>
         </div>
-      </mainRight>
+      </div>
     );
   }
 }
 
-export default MainRight;
+export default Aside;

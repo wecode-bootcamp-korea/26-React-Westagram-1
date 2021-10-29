@@ -26,6 +26,7 @@ export class Routes extends Component {
           <Route exact path="/" component={LoginSummer} />
           <Route exact path="/Signup-SummerKim" component={SignupSummer} />
           <Route exact path="/main-SummerKim" component={MainSummer} />
+
           <Route exact path="/main-BoraPark" component={MainBora} />
           <Route exact path="/Login-BoraPark" component={LoginBora} />
           <Route exact path="/main-ChangminJeon" component={MainChangmin} />
