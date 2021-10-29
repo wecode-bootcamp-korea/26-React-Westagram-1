@@ -28,6 +28,7 @@
 
     margin: 50px 0;
     border: 1px solid $box-border;
+    background-color: #fefefe;
 
     .top {
       display: flex;
@@ -110,6 +111,7 @@
       .contentName,
       .commentId {
         font-weight: 700;
+        padding-right: 5px;
       }
     }
 

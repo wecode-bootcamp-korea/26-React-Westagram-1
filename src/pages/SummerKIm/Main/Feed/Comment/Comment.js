@@ -6,7 +6,7 @@ export class Comment extends Component {
 
     return (
       <li className="comment">
-        <span className="commentId">{name} &nbsp;</span>
+        <span className="commentId">{name}</span>
         <span>{comment}</span>
         <button
           className={

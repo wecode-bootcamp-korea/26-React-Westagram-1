@@ -16,10 +16,11 @@ export class Feed extends Component {
 
   handleClick = e => {
     e.preventDefault();
+    const { comment, commentList } = this.state;
 
-    if (this.state.comment.length > 0) {
+    if (comment.length > 0) {
       this.setState({
-        commentList: this.state.commentList.concat(this.state.comment),
+        commentList: commentList.concat(comment),
         comment: '',
       });
     }
@@ -75,7 +76,7 @@ export class Feed extends Component {
               {likedUserName}님 외 {likedCount}명이 좋아합니다.
             </div>
             <div className="contents">
-              <span className="contentName">{name}&nbsp;</span>
+              <span className="contentName">{name}</span>
               <span className="content"> {content} </span>
               <button className="readmore" />
             </div>

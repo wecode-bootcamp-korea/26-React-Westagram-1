@@ -70,8 +70,9 @@ export class Login extends Component {
               onChange={this.inpitUserInfo}
             />
             <button
-              className={`loginBtn ${!loginVar ? 'disabled' : 'activate'}`}
               type="button"
+              className={`loginBtn ${!loginVar ? '' : 'activate'}`}
+              disabled={!loginVar ? true : false}
               onClick={this.submitUserLogin}
             >
               로그인
